@@ -1,0 +1,26 @@
+type Answer {
+    id: ID!
+    questionID: ID!
+    optionID: ID!
+    isCorrect: Boolean!
+    createdAt: Time!
+    updatedAt: Time!
+}
+
+extend type Mutation {
+    CreateAnswer(questionID: ID!, optionID: ID!): AnswerResponse
+    UpdateAnswer(id: ID!, questionID: ID!, optionID: ID!): AnswerResponse
+    DeleteAnswer(id: ID!): AnswerResponse
+}
+
+extend type Query {
+    GetOneAnswer(id: ID!): AnswerResponse
+    GetAllQuestionAnswer(questionID: ID!): AnswerResponse
+}
+
+type AnswerResponse {
+    message: String!
+    status: Int!
+    data: Answer # For a single record
+    dataList: [Answer] # For array of records
+}

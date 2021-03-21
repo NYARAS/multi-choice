@@ -1,0 +1,9 @@
+# vscode config file
+.vscode/
+
+coverage*
+
+*env.sh
+
+.idea/
+.gitmessage.txt
